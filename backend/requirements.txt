@@ -1,0 +1,37 @@
+# ============================================================
+# RAG Document Q&A — Python Dependencies
+# ============================================================
+# Each package is explained so you know WHY it's here.
+#
+# 🧠 RAG FRAMEWORK
+# langchain          — Orchestrates the entire RAG pipeline (chunking → embedding → retrieval → LLM)
+# langchain-google-genai — Google Gemini integration for LangChain (LLM + embeddings)
+# langchain-community — Community integrations (Chroma vector store adapter)
+#
+# 📄 DOCUMENT PARSING
+# pymupdf            — Fast PDF text extraction (better than PyPDF2 for complex layouts)
+#
+# 💾 VECTOR DATABASE
+# chromadb           — Embedded vector database (no server needed, stores embeddings locally)
+#
+# 🔧 UTILITIES
+# python-dotenv      — Loads API keys from .env file (keeps secrets out of code)
+# rich               — Beautiful terminal output (colored text, tables, progress bars)
+#
+# 🌐 API LAYER (Phase 2)
+# fastapi            — Modern async Python web framework
+# uvicorn            — ASGI server to run FastAPI
+# python-multipart   — Required for file upload handling in FastAPI
+# ============================================================
+
+langchain>=0.3.0
+langchain-google-genai>=2.0.0
+langchain-community>=0.3.0
+langchain-text-splitters>=0.3.0
+pymupdf>=1.24.0
+chromadb>=0.5.0
+python-dotenv>=1.0.0
+rich>=13.0.0
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
