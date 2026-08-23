@@ -22,7 +22,7 @@ HOW IT WORKS:
     4. Return structured data with page numbers (for source citations later!)
 """
 
-import fitz  # PyMuPDF — the import name differs from the package name
+import pymupdf  # PyMuPDF — previously imported as 'fitz', now uses its own name
 from pathlib import Path
 from dataclasses import dataclass
 
@@ -86,7 +86,7 @@ def parse_pdf(file_path: str | Path) -> ParsedDocument:
     # fitz.open() loads the entire PDF into memory
     # For very large PDFs (1000+ pages), you might want streaming — but this works for 99% of use cases
     try:
-        doc = fitz.open(str(file_path))
+        doc = pymupdf.open(str(file_path))
     except Exception as e:
         raise RuntimeError(f"Failed to open PDF '{file_path.name}': {e}")
     
@@ -110,13 +110,14 @@ def parse_pdf(file_path: str | Path) -> ParsedDocument:
                 source_file=file_path.name
             ))
     
+    total_pages = len(doc)  # Save before closing!
     doc.close()
     
     total_chars = sum(len(p.text) for p in pages)
     
     return ParsedDocument(
         filename=file_path.name,
-        total_pages=len(doc),
+        total_pages=total_pages,
         pages=pages,
         total_characters=total_chars
     )

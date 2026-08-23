@@ -35,8 +35,8 @@ from chromadb.config import Settings
 from app.services.embedder import get_embedding_model
 from app.services.chunker import Chunk
 from app.config import CHROMA_DB_PATH, TOP_K
-from langchain_community.vectorstores import Chroma
-from langchain.schema import Document
+from langchain_chroma import Chroma
+from langchain_core.documents import Document
 
 
 # We use a single collection name for simplicity.

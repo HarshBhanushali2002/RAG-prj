@@ -28,7 +28,7 @@ WHY THIS IS A SEPARATE MODULE:
     By isolating retrieval, we can upgrade it without touching the rest of the pipeline.
 """
 
-from langchain.schema import Document
+from langchain_core.documents import Document
 from app.services.vector_store import search_similar, search_with_scores
 
 

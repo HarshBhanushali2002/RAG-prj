@@ -29,7 +29,7 @@ GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
 
 # --- Model Selection ---
 LLM_MODEL: str = os.getenv("LLM_MODEL", "gemini-2.0-flash")
-EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "text-embedding-004")
+EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
 
 # --- Paths ---
 BASE_DIR = Path(__file__).resolve().parent.parent  # points to backend/

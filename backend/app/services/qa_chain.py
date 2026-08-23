@@ -31,8 +31,8 @@ WHY LangChain OVER DIRECT API CALLS:
 """
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema.output_parser import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 from app.config import GOOGLE_API_KEY, LLM_MODEL, TOP_K
 from app.services.retriever import retrieve_context, format_context_for_llm
 
