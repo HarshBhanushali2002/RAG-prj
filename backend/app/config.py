@@ -28,7 +28,7 @@ load_dotenv()
 GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
 
 # --- Model Selection ---
-LLM_MODEL: str = os.getenv("LLM_MODEL", "gemini-2.0-flash")
+LLM_MODEL: str = os.getenv("LLM_MODEL", "gemini-3.6-flash")
 EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
 
 # --- Paths ---
@@ -66,22 +66,22 @@ def validate_config():
 
     if not GOOGLE_API_KEY or GOOGLE_API_KEY == "your-gemini-api-key-here":
         errors.append(
-            "❌ GOOGLE_API_KEY is not set!\n"
-            "   → Get a free key at: https://aistudio.google.com/apikey\n"
-            "   → Copy .env.example to .env and paste your key"
+            "[ERROR] GOOGLE_API_KEY is not set!\n"
+            "   -> Get a free key at: https://aistudio.google.com/apikey\n"
+            "   -> Copy .env.example to .env and paste your key"
         )
 
     if CHUNK_SIZE < 100:
-        errors.append(f"❌ CHUNK_SIZE={CHUNK_SIZE} is too small. Use at least 100.")
+        errors.append(f"[ERROR] CHUNK_SIZE={CHUNK_SIZE} is too small. Use at least 100.")
 
     if CHUNK_OVERLAP >= CHUNK_SIZE:
         errors.append(
-            f"❌ CHUNK_OVERLAP ({CHUNK_OVERLAP}) must be less than CHUNK_SIZE ({CHUNK_SIZE})"
+            f"[ERROR] CHUNK_OVERLAP ({CHUNK_OVERLAP}) must be less than CHUNK_SIZE ({CHUNK_SIZE})"
         )
 
     if errors:
         print("\n" + "=" * 60)
-        print("🚨 CONFIGURATION ERRORS")
+        print("[!] CONFIGURATION ERRORS")
         print("=" * 60)
         for error in errors:
             print(f"\n{error}")
