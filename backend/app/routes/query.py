@@ -1,3 +1,5 @@
+# Route: POST /query
+# Pipeline: question -> embed -> vector search -> Gemini -> response
 """
 ❓ QUERY ROUTES — Endpoint for asking questions about uploaded documents.
 
@@ -99,3 +101,4 @@ async def query_documents(request: QueryRequest):
             status_code=500,
             detail=f"Error generating answer: {str(e)}",
         )
+
