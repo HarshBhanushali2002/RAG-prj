@@ -55,7 +55,8 @@ def retrieve_context(
         - top_k=5: Good for complex questions that span multiple sections
         - top_k=10: Risk of including irrelevant chunks that confuse the LLM
     """
-    if include_scores:
+    # Future: add score threshold filtering to discard low-relevance chunks
+        if include_scores:
         results = search_with_scores(query, top_k=top_k)
         return [
             {
@@ -113,3 +114,4 @@ def format_context_for_llm(chunks: list[dict]) -> str:
         formatted_chunks.append(formatted)
     
     return "\n\n---\n\n".join(formatted_chunks)
+

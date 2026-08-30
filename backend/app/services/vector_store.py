@@ -39,7 +39,7 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
 
-# We use a single collection name for simplicity.
+# All documents share one collection — simplest approach for a single-tenant app.
 # In production, you might use one collection per user or per document set.
 COLLECTION_NAME = "rag_documents"
 
@@ -274,3 +274,4 @@ if __name__ == "__main__":
         
         console.print(table)
         console.print()
+

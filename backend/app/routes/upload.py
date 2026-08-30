@@ -1,3 +1,5 @@
+# Route: POST /upload
+# Pipeline: PDF -> parse -> chunk -> embed -> ChromaDB
 """
 📤 UPLOAD ROUTES — Endpoints for document management.
 
@@ -211,3 +213,4 @@ async def remove_document(filename: str):
         chunks_deleted=chunks_deleted,
         message=f"Deleted {chunks_deleted} chunks for '{filename}'.",
     )
+
